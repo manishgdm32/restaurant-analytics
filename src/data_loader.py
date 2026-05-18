@@ -2,7 +2,7 @@ import pandas as pd
 import os
 from datetime import datetime
 
-DATA_PATH = r"C:\Users\manis\Downloads\drive-download-20260502T103041Z-3-001"
+DATA_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "raw")
 
 def load_all_data():
     """Load all CSV files and return merged dataset"""
