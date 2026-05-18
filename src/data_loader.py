@@ -7,11 +7,11 @@ DATA_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "ra
 def load_all_data():
     """Load all CSV files and return merged dataset"""
 
-    orders = pd.read_csv(f"{DATA_PATH}\\OrderDetails_2026_04_01-2026_04_30.csv", encoding='latin-1')
-    items = pd.read_csv(f"{DATA_PATH}\\ItemSelectionDetails_2026_04_01-2026_04_30.csv", encoding='latin-1')
-    category_sales = pd.read_csv(f"{DATA_PATH}\\sales-breakdown-apr1-30-2026 - Dining-Sales Categlory.csv", encoding='latin-1')
-    discount_sales = pd.read_csv(f"{DATA_PATH}\\sales-breakdown-apr1-30-2026 Discount.csv", encoding='latin-1')
-    payouts = pd.read_csv(f"{DATA_PATH}\\Payout overview.csv", encoding='latin-1')
+    orders = pd.read_csv(os.path.join(DATA_PATH, "OrderDetails_2026_04_01-2026_04_30.csv"), encoding='latin-1')
+    items = pd.read_csv(os.path.join(DATA_PATH, "ItemSelectionDetails_2026_04_01-2026_04_30.csv"), encoding='latin-1')
+    category_sales = pd.read_csv(os.path.join(DATA_PATH, "sales-breakdown-apr1-30-2026 - Dining-Sales Categlory.csv"), encoding='latin-1')
+    discount_sales = pd.read_csv(os.path.join(DATA_PATH, "sales-breakdown-apr1-30-2026 Discount.csv"), encoding='latin-1')
+    payouts = pd.read_csv(os.path.join(DATA_PATH, "Payout overview.csv"), encoding='latin-1')
 
     orders['Opened'] = pd.to_datetime(orders['Opened'], format='mixed')
     orders['Date'] = orders['Opened'].dt.date
